@@ -19,4 +19,4 @@ Process and apply template using default values from the template and passing yo
 oc process -f wordpress-template.yaml | oc apply -f -
 ```
 
-By default version `6.0` is deployed.
+By default version `6.0` is deployed. For a whole list of versions available, visit the [docker hub page](https://hub.docker.com/r/bitnami/mongodb/tags) with all the tags available.
