@@ -2,6 +2,7 @@ apiVersion: template.openshift.io/v1
 kind: Template
 labels:
   template: mongodb-persistent-template
+  app: mongodb
 message: |-
   The following service(s) have been created in your project: ${DATABASE_SERVICE_NAME}.
 
@@ -128,7 +129,7 @@ objects:
               - /bin/sh
               - -i
               - -c
-              - mongosh mongodb://127.0.0.1:27017/$MONGODB_DATABASE
+              - mongosh mongodb://mongodb:27017/$MONGODB_DATABASE
                 --eval="quit()"
             initialDelaySeconds: 3
             timeoutSeconds: 10
@@ -190,7 +191,7 @@ parameters:
   name: VOLUME_CAPACITY
   required: true
   value: 1Gi
-- description: Version of MongoDB image to be used (6.0 or latest).
+- description: Version of MongoDB image to be used (4.4.15, 5.0, 6.0 or latest). Check https://hub.docker.com/r/bitnami/mongodb/tags for a full list.
   displayName: Version of MongoDB Image
   name: MONGODB_VERSION
   required: true
