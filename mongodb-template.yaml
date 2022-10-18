@@ -129,8 +129,7 @@ objects:
               - /bin/sh
               - -i
               - -c
-              - mongosh mongodb://mongodb:27017/$MONGODB_DATABASE
-                --eval="quit()"
+              - mongosh mongodb://localhost:27017/$MONGODB_DATABASE --eval="quit()"
             initialDelaySeconds: 3
             timeoutSeconds: 10
           resources:
